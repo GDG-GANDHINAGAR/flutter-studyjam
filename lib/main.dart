@@ -14,13 +14,37 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
-  // Widget buildWeatherDisplay() {
-  //   return Row(
-  //     children: <Widget>[
-  //       image
-  //     ],
-  //   );
-  // }
+  Widget buildWeatherDisplay() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Image.asset('assets/images/Sun.png'),
+        Padding(
+          padding: EdgeInsets.all(5.0),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            Text(
+              '84°C',
+              style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 35.0,
+                  fontWeight: FontWeight.w200),
+            ),
+            Text(
+              'Mostly Sunny',
+              style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w300),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
   Widget buildCityDisplay() {
     return Column(
       children: <Widget>[
@@ -51,10 +75,11 @@ class Home extends StatelessWidget {
                     fontWeight: FontWeight.w300),
               ),
               RotatedBox(
-                quarterTurns: -1,
-                child: Icon(Icons.arrow_back_ios,size: 10.0,)
-              ),
-              
+                  quarterTurns: -1,
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    size: 10.0,
+                  )),
             ],
           ),
           itemBuilder: (context) => [
@@ -93,7 +118,7 @@ class Home extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           buildCityDisplay(),
-          buildCityDisplay(),
+          buildWeatherDisplay(),
           buildCityDisplay(),
         ],
       ),
